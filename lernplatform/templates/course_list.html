@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Course List</title>
+</head>
+<body>
+    <h2>Course List</h2>
+    <ul>
+        {% for course in courses %}
+            <li>{{ course.title }}</li>
+        {% endfor %}
+    </ul>
+    {% if user.is_instructor %}
+        <p><a href="{% url 'add_course' %}">Add Course</a></p>
+    {% endif %}
+    <p><a href="{% url 'home' %}">Back to Home</a></p>
+</body>
+</html>

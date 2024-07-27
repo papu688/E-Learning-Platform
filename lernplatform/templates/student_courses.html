@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My Courses</title>
+</head>
+<body>
+    <h2>My Courses</h2>
+    <ul>
+        {% for course in courses %}
+            <li>{{ course.course.title }} - {% if course.completed %}Completed{% else %}In Progress{% endif %}</li>
+        {% endfor %}
+    </ul>
+    <p><a href="{% url 'home' %}">Back to Home</a></p>
+</body>
+</html>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Question Detail</title>
+</head>
+<body>
+    <h2>{{ question.title }}</h2>
+    <p>{{ question.description }}</p>
+    {% if user.is_instructor %}
+        <h3>Answer</h3>
+        <form method="post">
+            {% csrf_token %}
+            {{ answer_form.as_p }}
+            <button type="submit">Submit</button>
+        </form>
+    {% endif %}
+    <p><a href="{% url 'question_list' %}">Back to Questions</a></p>
+</body>
+</html>
